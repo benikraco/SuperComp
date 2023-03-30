@@ -21,4 +21,4 @@ Movie start: 20, end: 21, category: 3
 Movie start: 21, end: 22, category: 1
 Movie start: 22, end: 23, category: 16
 Movie start: 23, end: 25, category: 6
-Time elapsed during the aleatory algorithm: 64 microseconds
+Time elapsed during the aleatory algorithm: 32 microseconds
