@@ -5,7 +5,7 @@ from tabulate import tabulate
 from termcolor import colored
 
 # Caminhos e configurações
-num_inputs = 5
+num_inputs = 15
 heuristica_gulosa_executavel = os.path.abspath("./heuristicas/gulosa/gulosa")
 heuristica_aleatoria_executavel = os.path.abspath("./heuristicas/aleatoria/aleatoria")
 pasta_inputs = "heuristicas/inputs"
@@ -17,6 +17,7 @@ gulosa_tempos_execucao = []
 aleatoria_tempos_execucao = []
 gulosa_tempos_tela = []
 aleatoria_tempos_tela = []
+total_filmes = []
 
 # Expressão regular para extrair informações do output
 pattern = re.compile(r"Movies watched: (\d+).*Time elapsed during.*: (\d+\.?\d*)", re.DOTALL)
@@ -38,6 +39,12 @@ for i in range(num_inputs):
     with open(output_aleatoria, "w") as output_data:
         subprocess.run([heuristica_aleatoria_executavel, input_path], stdout=output_data)
 
+    # Lê a quantidade de filmes no arquivo de input
+    with open(input_path, "r") as input_data:
+        first_line = input_data.readline().strip()
+        num_filmes = int(first_line.split()[0])
+        total_filmes.append(num_filmes)
+
     # Ler e extrair resultados dos outputs
     with open(output_gulosa, "r") as output_data:
         gulosa_output = output_data.read()
@@ -54,11 +61,14 @@ for i in range(num_inputs):
 # Preparar dados para exibir como tabela
 table_data = [
     ["Input"] + [f"Input {i}" for i in range(num_inputs)],
-    [colored("Gulosa (us)", "blue")] + [colored(f"{t:.2f}", "blue") for t in gulosa_tempos_execucao],
+    [colored("Gulosa (us)", "cyan")] + [colored(f"{t:.2f}", "cyan") for t in gulosa_tempos_execucao],
     [colored("Aleatória (us)", "green")] + [colored(f"{t:.2f}", "green") for t in aleatoria_tempos_execucao],
-    [colored("Horas de tela Gulosa", "blue")] + [colored(str(h), "blue") for h in gulosa_tempos_tela],
+    [colored("Horas de tela Gulosa", "cyan")] + [colored(str(h), "cyan") for h in gulosa_tempos_tela],
     [colored("Horas de tela Aleatória", "green")] + [colored(str(h), "green") for h in aleatoria_tempos_tela],
 ]
+
+# Adicionar coluna com o total de filmes disponíveis por input na tabela
+table_data.insert(1, ["Total de filmes"] + total_filmes)
 
 # Transpor a tabela para facilitar a leitura
 table_data = list(map(list, zip(*table_data)))
