@@ -5,6 +5,7 @@
 #include <chrono>
 #include <random>
 #include <ctime>
+using namespace std;
 
 // Define the Movie structure with start, end, category, and index fields
 struct Movie {
@@ -14,7 +15,7 @@ struct Movie {
 // Function prototypes
 bool compareMovies(const Movie &a, const Movie &b);
 bool timeOverlap(int start1, int end1, int start2, int end2);
-std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory);
+vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMoviesPerCategory);
 
 // Compare function for sorting movies by end time, and start time in case of a tie
 bool compareMovies(const Movie &a, const Movie &b) {
@@ -37,8 +38,8 @@ bool timeOverlap(int start1, int end1, int start2, int end2) {
 
 
 // Function to read movies from input file and return a vector of Movie structures
-std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory) {
-    std::ifstream inputFile(filename);
+vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMoviesPerCategory) {
+    ifstream inputFile(filename);
 
     // Read the number of movies and categories from the input file
     inputFile >> N >> M;
@@ -52,7 +53,7 @@ std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<
     }
 
     // Initialize the movies vector with the number of movies
-    std::vector<Movie> movies(N);
+    vector<Movie> movies(N);
 
     // Read the movie information
     for (int i = 0; i < N; i++) {
@@ -70,37 +71,37 @@ std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+        cerr << "Usage: " << argv[0] << " <input_file>" << endl;
         return 1;
     }
 
-    std::string input_file = argv[1];
+    string input_file = argv[1];
     int N, M;
-    std::vector<int> maxMoviesPerCategory;
+    vector<int> maxMoviesPerCategory;
 
     // Passe o nome do arquivo de input para a função readMovies
-    std::vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
+    vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
     
 
     // Sort the movies by end time, and start time in case of a tie
-    std::sort(movies.begin(), movies.end(), compareMovies);
+    sort(movies.begin(), movies.end(), compareMovies);
 
     // Initialize the chosenMoviesPerCategory vector
-    std::vector<int> chosenMoviesPerCategory(M, 0);
-    std::vector<Movie> chosenMovies;
+    vector<int> chosenMoviesPerCategory(M, 0);
+    vector<Movie> chosenMovies;
     int moviesWatched = 0;
 
     // Initialize a vector to track which movies have been selected
-    std::vector<bool> movieSelected(N, false);
+    vector<bool> movieSelected(N, false);
 
     // Initialize the random number generator
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> distribution(0.0, 1.0);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<double> distribution(0.0, 1.0);
     gen.seed(rd() + time(0));
 
     // Start the timer
-    auto startTime = std::chrono::steady_clock::now();
+    auto startTime = chrono::steady_clock::now();
 
     // Iterate over the sorted movies
     for (const Movie &movie : movies) {
@@ -109,7 +110,7 @@ int main(int argc, char* argv[]) {
         if (randomValue <= 0.25) {
 
             // Make another alearization to find an alternative movie
-            std::uniform_int_distribution<int> distribution2(movie.index, N - 1);
+            uniform_int_distribution<int> distribution2(movie.index, N - 1);
             bool conflict2 = false;
                 
             int randomValue2 = distribution2(gen);
@@ -131,7 +132,7 @@ int main(int argc, char* argv[]) {
                 chosenMovies.push_back(movies[randomValue2]);
                 movieSelected[randomValue2] = true; // Mark the alternative movie as selected 
             } else{
-                // std::cout << "No alternative movie found" << std::endl;
+                // cout << "No alternative movie found" << endl;
             }
         }
 
@@ -158,29 +159,29 @@ int main(int argc, char* argv[]) {
                 chosenMovies.push_back(movie);
                 movieSelected[movie.index] = true; // Mark the alternative movie as selected
             } else {
-                // std::cout << "No alternative movie found 2" << std::endl;
+                // cout << "No alternative movie found 2" << endl;
             }
     
         }
     }    
 
     // Stop the timer
-    auto endTime = std::chrono::steady_clock::now();
+    auto endTime = chrono::steady_clock::now();
 
     // Calculate the time elapsed during algorithm execution
-    double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+    double duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime).count();
 
     // Sort the chosenMovies vector by end time, and start time in case of a tie
-    std::sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
+    sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
 
     // Print the number of movies watched
-    std::cout << "Movies watched: " << moviesWatched << std::endl;
+    cout << "Movies watched: " << moviesWatched << endl;
 
     // Print the start and end times, and category of the selected movies
     for (const Movie &movie : chosenMovies) {
-        std::cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << std::endl;
+        cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << endl;
     }
 
     // Print the time elapsed during the aleatory algorithm execution
-    std::cout << "Time elapsed during the aleatory algorithm: " << duration << " microseconds" << std::endl;
+    cout << "Time elapsed during the aleatory algorithm: " << duration << " microseconds" << endl;
 }
