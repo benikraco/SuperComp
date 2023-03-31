@@ -171,7 +171,7 @@ int main(int argc, char* argv[]) {
     double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
 
     // Sort the chosenMovies vector by end time, and start time in case of a tie
-    // std::sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
+    std::sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
 
     // Print the number of movies watched
     std::cout << "Movies watched: " << moviesWatched << std::endl;
