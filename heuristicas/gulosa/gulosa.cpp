@@ -121,8 +121,7 @@ int main(int argc, char* argv[]) {
 
     // Calculate the time elapsed during the greedy algorithm execution
     double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
-
-
+    
     // Print the number of movies watched
     std::cout << "Movies watched: " << moviesWatched << std::endl;
 

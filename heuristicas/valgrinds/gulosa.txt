@@ -1,148 +1,147 @@
 --------------------------------------------------------------------------------
 -- User-annotated source: gulosa.cpp
 --------------------------------------------------------------------------------
-Ir      
+Ir    
 
 -- line 10 ----------------------------------------
-      .  };
-      .  
-      .  // Function prototypes
-      .  bool compareMovies(const Movie &a, const Movie &b);
-      .  bool timeOverlap(int start1, int end1, int start2, int end2);
-      .  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory);
-      .  
-      .  // Compare function for sorting movies by end time, and start time in case of a tie
-123,153  bool compareMovies(const Movie &a, const Movie &b) {
-369,609      if (a.end == b.end) {
-219,012          return a.start < b.start;
-      .      }
-246,336      return a.end < b.end;
-246,306  }
-      .  
-      .  // Function to adjust the end time of a movie if it crosses the day boundary
-      .  int adjustEndTime(int endTime) {
- 30,000      if (endTime == 0) {
-233,774          return 24;
-      .      }
-      .      return endTime;
-      .  }
-      .  
-      .  // Function to check if two time intervals overlap
-      .  bool timeOverlap(int start1, int end1, int start2, int end2) {
-      .      end1 = adjustEndTime(end1);
-      .      end2 = adjustEndTime(end2);
-      .  
-      .      return start1 < end2 && start2 < end1;
-      .  }
-      .  
-      .  // Function to read movies from input file and return a vector of Movie structures
-     16  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory) {
-      .      std::ifstream inputFile(filename);
-      .  
-      .      // Read the number of movies and categories from the input file
-      6      inputFile >> N >> M;
-  6,677  => ???:0x000000000010a310 (2x)
-      .  
-      .      // Resize the maxMoviesPerCategory vector according to the number of categories
-      2      maxMoviesPerCategory.resize(M);
-      .  
-      .      // Read the maximum number of movies per category
-     64      for (int i = 0; i < M; i++) {
-     40          inputFile >> maxMoviesPerCategory[i];
-  8,586  => ???:0x000000000010a310 (20x)
-      .      }
-      .  
-      .      // Initialize the movies vector with the number of movies
-      1      std::vector<Movie> movies(N);
-      .  
-      .      // Read the movie information
- 30,004      for (int i = 0; i < N; i++) {
- 90,000          inputFile >> movies[i].start >> movies[i].end >> movies[i].category;
-13,082,583  => ???:0x000000000010a310 (30,000x)
- 10,410          movies[i].end = adjustEndTime(movies[i].end);
-      .      }
-      .  
-      .      // Close the input file
-      .      inputFile.close();
-      .      return movies;
-     12  }
-      .  
-     12  int main(int argc, char* argv[]) {
-      2      if (argc != 2) {
-      .          std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-      .          return 1;
-      .      }
-      .  
-      1      std::string input_file = argv[1];
-      .      int N, M;
-      .      std::vector<int> maxMoviesPerCategory;
-      .  
-      .      // Passe o nome do arquivo de input para a função readMovies
-      6      std::vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
-13,363,075  => gulosa.cpp:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&) (1x)
-      .  
-      .      // Sort the movies by end time, and start time in case of a tie
-      .      std::sort(movies.begin(), movies.end(), compareMovies);
-      .  
-      .      // Initialize the chosenMoviesPerCategory vector
-      1      std::vector<int> chosenMoviesPerCategory(M, 0);
-      .      std::vector<Movie> chosenMovies;
-      1      int moviesWatched = 0;
-      .  
-      .      // Start the timer
-      2      auto startTime = std::chrono::steady_clock::now();
-    950  => ???:0x000000000010a3f0 (1x)
-      .  
-      .      // Iterate over the sorted movies
- 30,002      for (const Movie &movie : movies) {
-      .  
-      .          // Check if the movie doesn't cross the day boundary and there are available slots for the movie category
-103,462          if (movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
-      .              bool conflict = false;
-      .  
-      .              // Check for conflicts with other chosen movies
-319,169              for (const Movie &chosenMovie : chosenMovies) {
-516,800                  if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
-      .                      conflict = true;
-      .                      break;
-      .                  }
-      .              }
-      .  
-      .              // If there's no conflict, increment the chosen movies count for the category
-      .              if (!conflict) {
-     48                  chosenMoviesPerCategory[movie.category - 1]++;
-     24                  moviesWatched++;
-      .                  chosenMovies.push_back(movie);
-      .              }
-      .  
-      .          }
-      .      }
-      .  
-      .      // Stop the timer
-      1      auto endTime = std::chrono::steady_clock::now();
-     40  => ???:0x000000000010a3f0 (1x)
-      .  
-      .      // Calculate the time elapsed during the greedy algorithm execution
-      3      double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
-      .  
-      .  
-      .      // Print the number of movies watched
-      4      std::cout << "Movies watched: " << moviesWatched << std::endl;
-  5,491  => ???:0x000000000010a480 (1x)
-      .  
-      .      // Print the start and end times, and category of the selected movies
-     76      for (const Movie &movie : chosenMovies) {
-    288          std::cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << std::endl;
- 29,983  => ???:0x000000000010a480 (72x)
-      .      }
-      .  
-      .      // Print the time elapsed during the greedy algorithm execution
-      .      std::cout << "Time elapsed during the greedy algorithm: " << duration << " microseconds" << std::endl;
-      .  
-     16  }
-      .  
+    .  };
+    .  
+    .  // Function prototypes
+    .  bool compareMovies(const Movie &a, const Movie &b);
+    .  bool timeOverlap(int start1, int end1, int start2, int end2);
+    .  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory);
+    .  
+    .  // Compare function for sorting movies by end time, and start time in case of a tie
+  695  bool compareMovies(const Movie &a, const Movie &b) {
+2,325      if (a.end == b.end) {
+  480          return a.start < b.start;
+    .      }
+1,420      return a.end < b.end;
+1,390  }
+    .  
+    .  // Function to adjust the end time of a movie if it crosses the day boundary
+    .  int adjustEndTime(int endTime) {
+  300      if (endTime == 0) {
+1,101          return 24;
+    .      }
+    .      return endTime;
+    .  }
+    .  
+    .  // Function to check if two time intervals overlap
+    .  bool timeOverlap(int start1, int end1, int start2, int end2) {
+    .      end1 = adjustEndTime(end1);
+    .      end2 = adjustEndTime(end2);
+    .  
+    .      return start1 < end2 && start2 < end1;
+    .  }
+    .  
+    .  // Function to read movies from input file and return a vector of Movie structures
+   16  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory) {
+    .      std::ifstream inputFile(filename);
+    .  
+    .      // Read the number of movies and categories from the input file
+    6      inputFile >> N >> M;
+6,569  => ???:0x000000000010a310 (2x)
+    .  
+    .      // Resize the maxMoviesPerCategory vector according to the number of categories
+    2      maxMoviesPerCategory.resize(M);
+    .  
+    .      // Read the maximum number of movies per category
+   34      for (int i = 0; i < M; i++) {
+   20          inputFile >> maxMoviesPerCategory[i];
+4,104  => ???:0x000000000010a310 (10x)
+    .      }
+    .  
+    .      // Initialize the movies vector with the number of movies
+    1      std::vector<Movie> movies(N);
+    .  
+    .      // Read the movie information
+  304      for (int i = 0; i < N; i++) {
+  900          inputFile >> movies[i].start >> movies[i].end >> movies[i].category;
+128,446  => ???:0x000000000010a310 (300x)
+  106          movies[i].end = adjustEndTime(movies[i].end);
+    .      }
+    .  
+    .      // Close the input file
+    .      inputFile.close();
+    .      return movies;
+   12  }
+    .  
+   12  int main(int argc, char* argv[]) {
+    2      if (argc != 2) {
+    .          std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+    .          return 1;
+    .      }
+    .  
+    1      std::string input_file = argv[1];
+    .      int N, M;
+    .      std::vector<int> maxMoviesPerCategory;
+    .  
+    .      // Passe o nome do arquivo de input para a função readMovies
+    6      std::vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
+161,153  => gulosa.cpp:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&) (1x)
+    .  
+    .      // Sort the movies by end time, and start time in case of a tie
+    .      std::sort(movies.begin(), movies.end(), compareMovies);
+    .  
+    .      // Initialize the chosenMoviesPerCategory vector
+    1      std::vector<int> chosenMoviesPerCategory(M, 0);
+    .      std::vector<Movie> chosenMovies;
+    1      int moviesWatched = 0;
+    .  
+    .      // Start the timer
+    2      auto startTime = std::chrono::steady_clock::now();
+  950  => ???:0x000000000010a3f0 (1x)
+    .  
+    .      // Iterate over the sorted movies
+  302      for (const Movie &movie : movies) {
+    .  
+    .          // Check if the movie doesn't cross the day boundary and there are available slots for the movie category
+1,065          if (movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
+    .              bool conflict = false;
+    .  
+    .              // Check for conflicts with other chosen movies
+1,396              for (const Movie &chosenMovie : chosenMovies) {
+2,130                  if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
+    .                      conflict = true;
+    .                      break;
+    .                  }
+    .              }
+    .  
+    .              // If there's no conflict, increment the chosen movies count for the category
+    .              if (!conflict) {
+   24                  chosenMoviesPerCategory[movie.category - 1]++;
+   12                  moviesWatched++;
+    .                  chosenMovies.push_back(movie);
+    .              }
+    .  
+    .          }
+    .      }
+    .  
+    .      // Stop the timer
+    1      auto endTime = std::chrono::steady_clock::now();
+   40  => ???:0x000000000010a3f0 (1x)
+    .  
+    .      // Calculate the time elapsed during the greedy algorithm execution
+    3      double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+    .      
+    .      // Print the number of movies watched
+    4      std::cout << "Movies watched: " << moviesWatched << std::endl;
+5,491  => ???:0x000000000010a480 (1x)
+    .  
+    .      // Print the start and end times, and category of the selected movies
+   40      for (const Movie &movie : chosenMovies) {
+  144          std::cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << std::endl;
+14,943  => ???:0x000000000010a480 (36x)
+    .      }
+    .  
+    .      // Print the time elapsed during the greedy algorithm execution
+    .      std::cout << "Time elapsed during the greedy algorithm: " << duration << " microseconds" << std::endl;
+    .  
+   16  }
+    .  
 
 --------------------------------------------------------------------------------
-Ir        
+Ir     
 --------------------------------------------------------------------------------
-2,568,663  events annotated
+14,274  events annotated

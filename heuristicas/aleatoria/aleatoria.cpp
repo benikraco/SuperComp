@@ -24,10 +24,17 @@ bool compareMovies(const Movie &a, const Movie &b) {
     return a.end < b.end;
 }
 
+
 // Function to check if two time intervals overlap
 bool timeOverlap(int start1, int end1, int start2, int end2) {
-    return start1 < end2 && start2 < end1;
+    if (!((start1 >= end2) || (end1 <= start2))) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
+
 
 // Function to read movies from input file and return a vector of Movie structures
 std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory) {
@@ -98,61 +105,64 @@ int main(int argc, char* argv[]) {
     // Iterate over the sorted movies
     for (const Movie &movie : movies) {
 
+        double randomValue = distribution(gen);
+        if (randomValue <= 0.25) {
+
+            // Make another alearization to find an alternative movie
+            std::uniform_int_distribution<int> distribution2(movie.index, N - 1);
+            bool conflict2 = false;
+                
+            int randomValue2 = distribution2(gen);
+
+            if (movies[randomValue2].start == movies[randomValue2].end) {
+                continue;
+            }
+
+            for (auto& chosen_movie: chosenMovies){
+                // verify if movies is valid to be selected compared to movie
+                if (!(!(timeOverlap(movies[randomValue2].start, movies[randomValue2].end, chosen_movie.start, chosen_movie.end)) && (chosenMoviesPerCategory[movies[randomValue2].category - 1] < maxMoviesPerCategory[movies[randomValue2].category - 1]))){
+                    conflict2=true; 
+                }
+            }
+
+            if (!conflict2){
+                chosenMoviesPerCategory[movies[randomValue2].category - 1]++;
+                moviesWatched++;
+                chosenMovies.push_back(movies[randomValue2]);
+                movieSelected[randomValue2] = true; // Mark the alternative movie as selected 
+            } else{
+                // std::cout << "No alternative movie found" << std::endl;
+            }
+        }
+
+        if (movie.start == movie.end) {
+            continue;
+        }
+
         // Check if the movie doesn't cross the day boundary and there are available slots for the movie category
-        if (!movieSelected[movie.index] && movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
+        if (!movieSelected[movie.index] && movie.end > movie.start && (chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1])) {
             bool conflict = false;
 
             // Check for conflicts with other chosen movies
             for (const Movie &chosenMovie : chosenMovies) {
                 if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
                     conflict = true;
-                    break;
                 }
             }
 
-            // If there's no conflict, increment the chosen movies count for the category
+            // Check for conflicts with other chosen movies
+
             if (!conflict) {
-                double randomValue = distribution(gen);
-                if (randomValue <= 0.25) {
-
-                    // Find an alternative movie respecting the time constraints (25% chance)
-                    for (const Movie &alternativeMovie : movies) {
-
-                        // Skip if the alternative movie has already been selected
-                        if (movieSelected[alternativeMovie.index]) {
-                            continue;
-                        }
-
-                        bool altConflict = false;
-
-                        // Check for conflicts with other chosen movies
-                        for (const Movie &chosenMovie : chosenMovies) {
-                            if (timeOverlap(chosenMovie.start, chosenMovie.end, alternativeMovie.start, alternativeMovie.end)) {
-                                altConflict = true;
-                                break;
-                            }
-                        }
-
-                        // Check if the alternative movie doesn't cross the day boundary and there are available slots for the movie category
-                        if (!altConflict && chosenMoviesPerCategory[alternativeMovie.category - 1] < maxMoviesPerCategory[alternativeMovie.category - 1] && alternativeMovie.start != alternativeMovie.end) {
-                            chosenMoviesPerCategory[alternativeMovie.category - 1]++;
-                            moviesWatched++;
-                            chosenMovies.push_back(alternativeMovie);
-                            movieSelected[alternativeMovie.index] = true; // Mark the alternative movie as selected
-                            break;
-                        }
-                    }
-
-                // Otherwise, select the current movie
-                } else {
-                    chosenMoviesPerCategory[movie.category - 1]++;
-                    moviesWatched++;
-                    chosenMovies.push_back(movie);
-                    movieSelected[movie.index] = true; // Mark the movie as selected
-                }
+                chosenMoviesPerCategory[movie.category - 1]++;
+                moviesWatched++;
+                chosenMovies.push_back(movie);
+                movieSelected[movie.index] = true; // Mark the alternative movie as selected
+            } else {
+                // std::cout << "No alternative movie found 2" << std::endl;
             }
+    
         }
-    }
+    }    
 
     // Stop the timer
     auto endTime = std::chrono::steady_clock::now();
@@ -161,7 +171,7 @@ int main(int argc, char* argv[]) {
     double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
 
     // Sort the chosenMovies vector by end time, and start time in case of a tie
-    std::sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
+    // std::sort(chosenMovies.begin(), chosenMovies.end(), compareMovies);
 
     // Print the number of movies watched
     std::cout << "Movies watched: " << moviesWatched << std::endl;
