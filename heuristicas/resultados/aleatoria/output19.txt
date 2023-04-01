@@ -1,14 +1,15 @@
-Movies watched: 12
+Movies watched: 13
 Movie start: 0, end: 1, category: 14
-Movie start: 1, end: 5, category: 40
-Movie start: 5, end: 6, category: 11
-Movie start: 6, end: 8, category: 12
-Movie start: 8, end: 11, category: 49
-Movie start: 11, end: 13, category: 33
-Movie start: 13, end: 15, category: 42
-Movie start: 15, end: 16, category: 14
-Movie start: 16, end: 19, category: 5
-Movie start: 19, end: 20, category: 53
-Movie start: 20, end: 22, category: 42
-Movie start: 22, end: 24, category: 52
-Time elapsed during the aleatory algorithm: 52225 microseconds
+Movie start: 1, end: 2, category: 2
+Movie start: 2, end: 3, category: 5
+Movie start: 3, end: 5, category: 12
+Movie start: 5, end: 8, category: 50
+Movie start: 8, end: 9, category: 12
+Movie start: 9, end: 12, category: 46
+Movie start: 12, end: 14, category: 40
+Movie start: 14, end: 15, category: 5
+Movie start: 15, end: 16, category: 54
+Movie start: 16, end: 20, category: 56
+Movie start: 20, end: 23, category: 25
+Movie start: 23, end: 27, category: 44
+Time elapsed during the aleatory algorithm: 45415 microseconds

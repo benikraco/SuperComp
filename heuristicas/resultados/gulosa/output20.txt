@@ -7,4 +7,4 @@ Movie start: 4, end: 5, category: 4
 Movie start: 5, end: 6, category: 4
 Movie start: 6, end: 7, category: 1
 Movie start: 7, end: 8, category: 4
-Time elapsed during the greedy algorithm: 38725 microseconds
+Time elapsed during the greedy algorithm: 38022 microseconds

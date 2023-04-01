@@ -12,4 +12,4 @@ Movie start: 17, end: 19, category: 15
 Movie start: 19, end: 20, category: 13
 Movie start: 20, end: 22, category: 5
 Movie start: 22, end: 25, category: 14
-Time elapsed during the greedy algorithm: 23 microseconds
+Time elapsed during the greedy algorithm: 28 microseconds

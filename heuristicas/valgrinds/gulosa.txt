@@ -1,65 +1,200 @@
+-------------------------------------------------------------------------------
+Ir        
+--------------------------------------------------------------------------------
+2,691,248  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir         file:function
+--------------------------------------------------------------------------------
+1,067,468  /build/glibc-SzIz7B/glibc-2.31/elf/dl-lookup.c:_dl_lookup_symbol_x [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+  582,552  /build/glibc-SzIz7B/glibc-2.31/elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+  276,247  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/x86_64/dl-machine.h:_dl_relocate_object
+  121,014  /build/glibc-SzIz7B/glibc-2.31/elf/dl-lookup.c:check_match [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+   90,947  /build/glibc-SzIz7B/glibc-2.31/elf/do-rel.h:_dl_relocate_object
+   88,510  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/strcmp.S:strcmp [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+   71,545  /build/glibc-SzIz7B/glibc-2.31/elf/dl-addr.c:_dl_addr [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+   69,499  ???:std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+   33,695  /build/glibc-SzIz7B/glibc-2.31/elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+   19,227  ???:std::istream::sentry::sentry(std::istream&, bool) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+   17,050  ???:std::istream::operator>>(int&) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+   12,128  ???:std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+   10,251  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/generic/ldsodefs.h:_dl_relocate_object
+   10,230  ???:0x0000000000126e50 [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    9,480  /build/glibc-SzIz7B/glibc-2.31/elf/dl-tunables.h:__GI___tunables_init
+    9,142  /build/glibc-SzIz7B/glibc-2.31/elf/dl-version.c:_dl_check_map_versions [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    9,091  gulosa.cpp:main [/content/gulosa]
+    8,960  /build/glibc-SzIz7B/glibc-2.31/wcsmbs/btowc.c:btowc [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    8,690  /build/glibc-SzIz7B/glibc-2.31/elf/../elf/dl-runtime.c:_dl_fixup [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    7,722  ???:0x0000000000125250 [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    6,814  /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c:_IO_file_xsputn@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    6,678  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/generic/ldsodefs.h:do_lookup_x
+    5,891  gulosa.cpp:compareMovies(Movie const&, Movie const&) [/content/gulosa]
+    4,650  ???:0x0000000000126f00 [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    4,398  /build/glibc-SzIz7B/glibc-2.31/libio/iofwrite.c:fwrite [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    3,803  ???:std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    3,276  ???:__dynamic_cast [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    3,240  ???:std::locale::id::_M_id() const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    3,239  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave'2 [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    3,194  /build/glibc-SzIz7B/glibc-2.31/elf/dl-cache.c:_dl_cache_libcmp [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    3,186  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:_dl_map_object_from_fd [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    3,062  /build/glibc-SzIz7B/glibc-2.31/elf/dl-misc.c:_dl_name_match_p [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    2,816  /build/glibc-SzIz7B/glibc-2.31/wcsmbs/wctob.c:wctob [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    2,733  ???:std::ctype<wchar_t>::_M_initialize_ctype() [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    2,652  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:open_path [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    2,400  /build/glibc-SzIz7B/glibc-2.31/malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    2,352  ???:std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    2,298  ???:std::ostream& std::ostream::_M_insert<long>(long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    2,239  /build/glibc-SzIz7B/glibc-2.31/elf/dl-deps.c:_dl_map_object_deps [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    2,109  /usr/include/c++/9/bits/stl_algo.h:main
+    2,105  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:_dl_map_object [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    2,058  ???:std::ostream::sentry::sentry(std::ostream&) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    1,943  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:open_verify.constprop.0 [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,850  ???:__cxxabiv1::__si_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    1,814  gulosa.cpp:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&) [/content/gulosa]
+    1,608  /build/glibc-SzIz7B/glibc-2.31/elf/get-dynamic-info.h:_dl_map_object_from_fd
+    1,494  /build/glibc-SzIz7B/glibc-2.31/libio/libioP.h:fwrite
+    1,408  /build/glibc-SzIz7B/glibc-2.31/elf/dl-sort-maps.c:_dl_sort_maps [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,393  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__mempcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    1,271  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,228  /usr/include/c++/9/bits/predefined_ops.h:main
+    1,213  /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c:_IO_file_overflow@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    1,187  /build/glibc-SzIz7B/glibc-2.31/elf/dl-object.c:_dl_new_object [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,184  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/strlen-avx2.S:__strlen_avx2 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    1,184  ???:0x00000000001250d0 [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    1,165  /build/glibc-SzIz7B/glibc-2.31/elf/dl-minimal.c:malloc [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,153  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S:__memcmp_avx2_movbe [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    1,118  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:mempcpy [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,116  /build/glibc-SzIz7B/glibc-2.31/elf/dl-cache.c:_dl_load_cache_lookup [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,107  /build/glibc-SzIz7B/glibc-2.31/elf/rtld.c:dl_main [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,092  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:memset [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+    1,087  ???:std::ctype<char>::_M_widen_init() const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+    1,036  /build/glibc-SzIz7B/glibc-2.31/wctype/wctype_l.c:wctype_l [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+    1,010  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/../strlen.S:strlen [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      992  /build/glibc-SzIz7B/glibc-2.31/elf/dl-minimal.c:strsep [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      981  /usr/include/c++/9/bits/predefined_ops.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>)
+      957  ???:0x00000000048ef4f0 [???]
+      905  /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c:_IO_do_write@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      896  /build/glibc-SzIz7B/glibc-2.31/wcsmbs/./wcsmbsload.h:btowc
+      888  /build/glibc-SzIz7B/glibc-2.31/elf/dl-reloc.c:_dl_relocate_object [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      871  ???:__cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      857  /build/glibc-SzIz7B/glibc-2.31/stdio-common/printf_fp.c:__printf_fp_l [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      780  /usr/include/c++/9/bits/stl_algo.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>) [/content/gulosa]
+      768  /build/glibc-SzIz7B/glibc-2.31/elf/dl-profstub.c:_dl_mcount_wrapper_check [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      768  /build/glibc-SzIz7B/glibc-2.31/iconv/gconv_simple.c:__gconv_btwoc_ascii [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      768  /build/glibc-SzIz7B/glibc-2.31/malloc/malloc.c:ptmalloc_init.part.0
+      758  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86/cacheinfo.c:intel_check_word.isra.0 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      749  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:memcpy [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      747  /build/glibc-SzIz7B/glibc-2.31/malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      743  /usr/include/c++/9/bits/stl_vector.h:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&)
+      726  /usr/include/c++/9/bits/stl_algo.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>)'2 [/content/gulosa]
+      708  /build/glibc-SzIz7B/glibc-2.31/io/../sysdeps/unix/sysv/linux/open64_nocancel.c:__open_nocancel [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      706  /build/glibc-SzIz7B/glibc-2.31/stdlib/cxa_finalize.c:__cxa_finalize [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      701  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:_dl_init_paths [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      691  ???:std::locale::_Impl::_Impl(unsigned long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      687  /build/glibc-SzIz7B/glibc-2.31/elf/./dl-map-segments.h:_dl_map_object_from_fd
+      679  /usr/include/c++/9/bits/predefined_ops.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>)'2
+      672  /build/glibc-SzIz7B/glibc-2.31/libio/iofflush.c:fflush [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      666  /build/glibc-SzIz7B/glibc-2.31/string/../sysdeps/x86_64/multiarch/../strchr.S:index [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      661  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/x86/dl-prop.h:_dl_process_pt_note [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      630  ???:std::ostream::put(char) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      625  ???:0x00000000048eff30 [???]
+      625  ???:0x00000000048f16a0 [???]
+      620  ???:0x000000000010a310 [???]
+      620  ???:std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::do_get(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      598  /build/glibc-SzIz7B/glibc-2.31/elf/dl-hwcaps.c:_dl_important_hwcaps [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      588  /build/glibc-SzIz7B/glibc-2.31/elf/../elf/dl-sysdep.c:_dl_sysdep_start [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      578  /build/glibc-SzIz7B/glibc-2.31/malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      565  /build/glibc-SzIz7B/glibc-2.31/elf/dl-environ.c:_dl_next_ld_env_entry [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      555  /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c:_IO_file_write@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      531  ???:std::ios_base::ios_base() [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      517  ???:0x00000000048f1760 [???]
+      510  /build/glibc-SzIz7B/glibc-2.31/string/../bits/stdlib-bsearch.h:intel_check_word.isra.0
+      505  /usr/include/c++/9/bits/stl_iterator.h:main
+      498  ???:__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::xsputn(char const*, long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      492  /usr/include/c++/9/bits/move.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>)
+      486  /build/glibc-SzIz7B/glibc-2.31/misc/../sysdeps/unix/sysv/linux/mmap64.c:mmap [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      451  /build/glibc-SzIz7B/glibc-2.31/elf/dl-tunables.c:__tunable_get_val [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      447  /build/glibc-SzIz7B/glibc-2.31/elf/dl-fini.c:_dl_fini [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      442  ???:std::locale::locale() [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      440  ???:std::ostream::operator<<(int) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      439  /build/glibc-SzIz7B/glibc-2.31/elf/../sysdeps/x86_64/dl-machine.h:_dl_start
+      423  /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c:fillin_rpath [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      420  /build/glibc-SzIz7B/glibc-2.31/elf/dl-error-skeleton.c:_dl_catch_exception [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      414  ???:std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      414  ???:std::numpunct<char>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28]
+      409  /build/glibc-SzIz7B/glibc-2.31/elf/dl-init.c:call_init.part.0 [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      402  /usr/include/c++/9/bits/stl_algobase.h:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&)
+      399  /build/glibc-SzIz7B/glibc-2.31/libio/libioP.h:fflush
+      396  /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c:_IO_file_sync@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+      396  /usr/include/c++/9/bits/stl_bvector.h:main
+      390  /build/glibc-SzIz7B/glibc-2.31/elf/rtld.c:rtld_lock_default_lock_recursive [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      390  /build/glibc-SzIz7B/glibc-2.31/elf/rtld.c:rtld_lock_default_unlock_recursive [/usr/lib/x86_64-linux-gnu/ld-2.31.so]
+      372  /usr/include/c++/9/bits/move.h:void std::__introsort_loop<__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)> >(__gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, __gnu_cxx::__normal_iterator<Movie*, std::vector<Movie, std::allocator<Movie> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Movie const&, Movie const&)>)'2
+      356  /build/glibc-SzIz7B/glibc-2.31/stdlib/cxa_atexit.c:__new_exitfn [/usr/lib/x86_64-linux-gnu/libc-2.31.so]
+
 --------------------------------------------------------------------------------
 -- User-annotated source: gulosa.cpp
 --------------------------------------------------------------------------------
 Ir    
 
--- line 10 ----------------------------------------
+-- line 11 ----------------------------------------
     .  };
     .  
     .  // Function prototypes
     .  bool compareMovies(const Movie &a, const Movie &b);
     .  bool timeOverlap(int start1, int end1, int start2, int end2);
-    .  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory);
+    .  vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMoviesPerCategory);
     .  
     .  // Compare function for sorting movies by end time, and start time in case of a tie
-  695  bool compareMovies(const Movie &a, const Movie &b) {
-2,325      if (a.end == b.end) {
-  480          return a.start < b.start;
+  685  bool compareMovies(const Movie &a, const Movie &b) {
+2,355      if (a.end == b.end) {
+  417          return a.start < b.start;
     .      }
-1,420      return a.end < b.end;
-1,390  }
-    .  
-    .  // Function to adjust the end time of a movie if it crosses the day boundary
-    .  int adjustEndTime(int endTime) {
-  300      if (endTime == 0) {
-1,101          return 24;
-    .      }
-    .      return endTime;
-    .  }
+1,400      return a.end < b.end;
+1,370  }
     .  
     .  // Function to check if two time intervals overlap
     .  bool timeOverlap(int start1, int end1, int start2, int end2) {
-    .      end1 = adjustEndTime(end1);
-    .      end2 = adjustEndTime(end2);
+2,700      if (!((start1 >= end2) || (end1 <= start2))) {
+    .          return true;
+    .      }
+    .      else {
+    .          return false;
+    .      }
     .  
-    .      return start1 < end2 && start2 < end1;
     .  }
     .  
     .  // Function to read movies from input file and return a vector of Movie structures
-   16  std::vector<Movie> readMovies(std::string filename, int &N, int &M, std::vector<int> &maxMoviesPerCategory) {
-    .      std::ifstream inputFile(filename);
+   16  vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMoviesPerCategory) {
+    .      ifstream inputFile(filename);
     .  
     .      // Read the number of movies and categories from the input file
     6      inputFile >> N >> M;
-6,569  => ???:0x000000000010a310 (2x)
+6,515  => ???:0x000000000010a310 (2x)
     .  
     .      // Resize the maxMoviesPerCategory vector according to the number of categories
     2      maxMoviesPerCategory.resize(M);
     .  
     .      // Read the maximum number of movies per category
-   34      for (int i = 0; i < M; i++) {
-   20          inputFile >> maxMoviesPerCategory[i];
-4,104  => ???:0x000000000010a310 (10x)
+   28      for (int i = 0; i < M; i++) {
+   16          inputFile >> maxMoviesPerCategory[i];
+3,240  => ???:0x000000000010a310 (8x)
     .      }
     .  
     .      // Initialize the movies vector with the number of movies
-    1      std::vector<Movie> movies(N);
+    1      vector<Movie> movies(N);
+    .  
+    .  
+    .  
     .  
     .      // Read the movie information
-  304      for (int i = 0; i < N; i++) {
+  291      for (int i = 0; i < N; i++) {
   900          inputFile >> movies[i].start >> movies[i].end >> movies[i].category;
-128,446  => ???:0x000000000010a310 (300x)
-  106          movies[i].end = adjustEndTime(movies[i].end);
+128,284  => ???:0x000000000010a310 (300x)
+  400          if (movies[i].end < movies[i].start) {
+   28              movies[i].end += 24;
+    .          }
+  114          movies[i].index = i;
     .      }
     .  
     .      // Close the input file
@@ -69,74 +204,78 @@ Ir
     .  
    12  int main(int argc, char* argv[]) {
     2      if (argc != 2) {
-    .          std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+    .          cerr << "Usage: " << argv[0] << " <input_file>" << endl;
     .          return 1;
     .      }
     .  
-    1      std::string input_file = argv[1];
+    1      string input_file = argv[1];
     .      int N, M;
-    .      std::vector<int> maxMoviesPerCategory;
+    .      vector<int> maxMoviesPerCategory;
+    .  
+    .       // Initialize the vector of which movies have been selected
+    1      vector<bool> movieSelected(N, false);
     .  
     .      // Passe o nome do arquivo de input para a função readMovies
-    6      std::vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
-161,153  => gulosa.cpp:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&) (1x)
+    6      vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
+160,415  => gulosa.cpp:readMovies(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int&, int&, std::vector<int, std::allocator<int> >&) (1x)
     .  
     .      // Sort the movies by end time, and start time in case of a tie
-    .      std::sort(movies.begin(), movies.end(), compareMovies);
+    .      sort(movies.begin(), movies.end(), compareMovies);
     .  
     .      // Initialize the chosenMoviesPerCategory vector
-    1      std::vector<int> chosenMoviesPerCategory(M, 0);
-    .      std::vector<Movie> chosenMovies;
+    1      vector<int> chosenMoviesPerCategory(M, 0);
+    .      vector<Movie> chosenMovies;
     1      int moviesWatched = 0;
     .  
     .      // Start the timer
-    2      auto startTime = std::chrono::steady_clock::now();
+    2      auto startTime = chrono::steady_clock::now();
   950  => ???:0x000000000010a3f0 (1x)
     .  
     .      // Iterate over the sorted movies
-  302      for (const Movie &movie : movies) {
+  303      for (const Movie &movie : movies) {
+    .  
     .  
     .          // Check if the movie doesn't cross the day boundary and there are available slots for the movie category
-1,065          if (movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
-    .              bool conflict = false;
+1,506          if (!movieSelected[movie.index] && movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
+  186              bool conflict = false;
     .  
     .              // Check for conflicts with other chosen movies
-1,396              for (const Movie &chosenMovie : chosenMovies) {
-2,130                  if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
-    .                      conflict = true;
-    .                      break;
+2,213              for (const Movie &chosenMovie : chosenMovies) {
+    .                  if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
+1,350                      conflict = true;
     .                  }
     .              }
     .  
     .              // If there's no conflict, increment the chosen movies count for the category
-    .              if (!conflict) {
-   24                  chosenMoviesPerCategory[movie.category - 1]++;
-   12                  moviesWatched++;
+  186              if (!conflict) {
+   26                  chosenMoviesPerCategory[movie.category - 1]++;
+   13                  moviesWatched++;
     .                  chosenMovies.push_back(movie);
+   26                  movieSelected[movie.index] = true;
     .              }
     .  
     .          }
     .      }
     .  
     .      // Stop the timer
-    1      auto endTime = std::chrono::steady_clock::now();
+    1      auto endTime = chrono::steady_clock::now();
    40  => ???:0x000000000010a3f0 (1x)
     .  
     .      // Calculate the time elapsed during the greedy algorithm execution
-    3      double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+    3      double duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime).count();
     .      
     .      // Print the number of movies watched
-    4      std::cout << "Movies watched: " << moviesWatched << std::endl;
+    4      cout << "Movies watched: " << moviesWatched << endl;
 5,491  => ???:0x000000000010a480 (1x)
     .  
     .      // Print the start and end times, and category of the selected movies
-   40      for (const Movie &movie : chosenMovies) {
-  144          std::cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << std::endl;
-14,943  => ???:0x000000000010a480 (36x)
+   43      for (const Movie &movie : chosenMovies) {
+  156          cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << endl;
+16,098  => ???:0x000000000010a480 (39x)
     .      }
     .  
     .      // Print the time elapsed during the greedy algorithm execution
-    .      std::cout << "Time elapsed during the greedy algorithm: " << duration << " microseconds" << std::endl;
+    .      cout << "Time elapsed during the greedy algorithm: " << duration << " microseconds" << endl;
     .  
    16  }
     .  
@@ -144,4 +283,4 @@ Ir
 --------------------------------------------------------------------------------
 Ir     
 --------------------------------------------------------------------------------
-14,274  events annotated
+16,799  events annotated
