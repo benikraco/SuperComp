@@ -1,24 +1,2 @@
-Movies watched: 22
-Movie start: 0, end: 1, category: 8
-Movie start: 1, end: 2, category: 1
-Movie start: 2, end: 3, category: 6
-Movie start: 3, end: 5, category: 2
-Movie start: 5, end: 6, category: 5
-Movie start: 6, end: 7, category: 3
-Movie start: 7, end: 8, category: 6
-Movie start: 8, end: 9, category: 7
-Movie start: 9, end: 10, category: 5
-Movie start: 10, end: 11, category: 8
-Movie start: 11, end: 12, category: 7
-Movie start: 12, end: 13, category: 4
-Movie start: 13, end: 14, category: 5
-Movie start: 14, end: 15, category: 5
-Movie start: 15, end: 16, category: 2
-Movie start: 16, end: 17, category: 4
-Movie start: 17, end: 18, category: 7
-Movie start: 18, end: 19, category: 8
-Movie start: 19, end: 20, category: 8
-Movie start: 20, end: 22, category: 3
-Movie start: 22, end: 23, category: 7
-Movie start: 23, end: 24, category: 2
-Time elapsed during the greedy algorithm: 228 microseconds
+Movies watched: 0
+Time elapsed during the greedy algorithm: 1 microseconds

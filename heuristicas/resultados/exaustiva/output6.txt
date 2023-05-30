@@ -1,0 +1,2 @@
+Movies watched: 0
+Time elapsed during the exhaustive search algorithm: 0 microseconds

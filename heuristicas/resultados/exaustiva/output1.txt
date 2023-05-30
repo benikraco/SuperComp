@@ -1,0 +1,10 @@
+Movies watched: 8
+Movie start: 1, end: 2, category: 8
+Movie start: 3, end: 6, category: 8
+Movie start: 9, end: 11, category: 5
+Movie start: 11, end: 12, category: 4
+Movie start: 12, end: 14, category: 6
+Movie start: 14, end: 17, category: 1
+Movie start: 18, end: 22, category: 2
+Movie start: 23, end: 25, category: 5
+Time elapsed during the exhaustive search algorithm: 15471 microseconds
