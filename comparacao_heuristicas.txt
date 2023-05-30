@@ -1,0 +1,22 @@
++------------+------------+-------------------+-------------------+---------------+
+| Input      | Heurística | Filmes assistidos | Tempo de execução | Tempo na tela |
++------------+------------+-------------------+-------------------+---------------+
+| input0.txt | Gulosa     | 9                 | 10.0              | 23            |
+| input0.txt | Aleatória  | 8                 | 29.0              | 22            |
+| input0.txt | Exaustiva  | 9                 | 0.001492          | 23            |
+| input1.txt | Gulosa     | 13                | 18.0              | 23            |
+| input1.txt | Aleatória  | 11                | 41.0              | 21            |
+| input1.txt | Exaustiva  | 13                | 0.004402          | 23            |
+| input2.txt | Gulosa     | 13                | 18.0              | 24            |
+| input2.txt | Aleatória  | 9                 | 38.0              | 23            |
+| input2.txt | Exaustiva  | 13                | 0.009201          | 24            |
+| input3.txt | Gulosa     | 11                | 16.0              | 22            |
+| input3.txt | Aleatória  | 9                 | 38.0              | 22            |
+| input3.txt | Exaustiva  | 11                | 0.017566          | 22            |
+| input4.txt | Gulosa     | 13                | 18.0              | 24            |
+| input4.txt | Aleatória  | 12                | 42.0              | 24            |
+| input4.txt | Exaustiva  | 13                | 0.039185          | 24            |
+| input5.txt | Gulosa     | 7                 | 125.0             | 9             |
+| input5.txt | Aleatória  | 7                 | 190.0             | 13            |
+| input5.txt | Exaustiva  | 7                 | 0.090646          | 9             |
++------------+------------+-------------------+-------------------+---------------+
