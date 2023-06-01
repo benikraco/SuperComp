@@ -1,6 +1,5 @@
-Movies watched: 6
+Movies watched: 5
 Movie start: 1, end: 3, category: 1
-Movie start: 3, end: 6, category: 4
 Movie start: 6, end: 9, category: 4
 Movie start: 12, end: 15, category: 5
 Movie start: 21, end: 23, category: 7
