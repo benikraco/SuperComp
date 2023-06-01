@@ -1,0 +1,8 @@
+Movies watched: 6
+Movie start: 0, end: 2, category: 5
+Movie start: 4, end: 6, category: 3
+Movie start: 6, end: 9, category: 2
+Movie start: 10, end: 13, category: 3
+Movie start: 17, end: 20, category: 2
+Movie start: 21, end: 23, category: 6
+Time elapsed during the aleatory algorithm: 13 microseconds

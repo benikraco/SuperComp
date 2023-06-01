@@ -4,7 +4,7 @@ import re
 from prettytable import PrettyTable
 
 # Caminhos e configurações
-num_inputs = 6
+num_inputs = 12
 heuristica_gulosa_executavel = os.path.abspath("./heuristicas/gulosa/gulosa")
 heuristica_aleatoria_executavel = os.path.abspath("./heuristicas/aleatoria/aleatoria")
 heuristica_exaustiva_executavel = os.path.abspath("./heuristicas/exaustiva/exaustiva")
@@ -129,17 +129,17 @@ for i in range(num_inputs):
         match_tempo_tela = pattern_tempo_tela.findall(output_text)
         if match_tempo_tela:
             for item in match_tempo_tela:
-                tempo_tela_exaustiva += (int(item[1]) - int(item[0]))
+                tempo_tela_exaustiva_omp += (int(item[1]) - int(item[0]))
         exaustiva_omp_tempo_tela.append(tempo_tela_exaustiva_omp)
 
 # Cria a tabela para mostrar os resultados
-table_data = [["Input", "Heurística", "Filmes assistidos", "Tempo de execução", "Tempo na tela"]]
+table_data = [["Input", "Filmes Disponíveis", "Categorias Disponíveis", "Heurística", "Filmes assistidos", "Tempo de execução (us)", "Tempo na tela (h)"]]
 
 for i in range(num_inputs):
-    table_data.append([f"input{i}.txt", "Gulosa", gulosa_assistido[i], gulosa_tempos_execucao[i], gulosa_tempo_tela[i]])
-    table_data.append([f"input{i}.txt", "Aleatória", aleatoria_assistido[i], aleatoria_tempos_execucao[i], aleatoria_tempo_tela[i]])
-    table_data.append([f"input{i}.txt", "Exaustiva", exaustiva_assistido[i], exaustiva_tempos_execucao[i], exaustiva_tempo_tela[i]])
-    table_data.append([f"input{i}.txt", "Exaustiva (OpenMP)", exaustiva_omp_assistido[i], exaustiva_omp_tempos_execucao[i], exaustiva_omp_tempo_tela[i]])
+    table_data.append([f"input{i}.txt", total_filmes[i], total_categorias[i], "Gulosa", gulosa_assistido[i], gulosa_tempos_execucao[i], gulosa_tempo_tela[i]])
+    table_data.append([f"input{i}.txt", total_filmes[i], total_categorias[i], "Aleatória", aleatoria_assistido[i], aleatoria_tempos_execucao[i], aleatoria_tempo_tela[i]])
+    table_data.append([f"input{i}.txt", total_filmes[i], total_categorias[i], "Exaustiva", exaustiva_assistido[i], exaustiva_tempos_execucao[i], exaustiva_tempo_tela[i]])
+    table_data.append([f"input{i}.txt", total_filmes[i], total_categorias[i], "Exaustiva (OpenMP)", exaustiva_omp_assistido[i], exaustiva_omp_tempos_execucao[i], exaustiva_omp_tempo_tela[i]])
 
 # Criar uma nova tabela usando PrettyTable
 tabela = PrettyTable()

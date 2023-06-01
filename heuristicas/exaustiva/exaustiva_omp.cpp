@@ -4,17 +4,14 @@
 #include <fstream>
 #include <chrono>
 #include <omp.h> 
+#include <cmath>
 
 using namespace std;
 
-// Define a structure for Movie which holds its start time, end time, category, and index
 struct Movie {
     int start, end, category, index;
 };
 
-// Define function prototypes for comparing movies, checking time overlap, reading movies from a file, and the main function for exhaustive search
-
-// Function to compare two movies based on their end time and start time (if end times are equal)
 bool compareMovies(const Movie &a, const Movie &b) {
     if (a.end == b.end) {
         return a.start < b.start;
@@ -22,7 +19,6 @@ bool compareMovies(const Movie &a, const Movie &b) {
     return a.end < b.end;
 }
 
-// Function to check if two time periods overlap
 bool timeOverlap(int start1, int end1, int start2, int end2) {
     if (!((start1 >= end2) || (end1 <= start2))) {
         return true;
@@ -32,25 +28,19 @@ bool timeOverlap(int start1, int end1, int start2, int end2) {
     }
 }
 
-// Function to read movies from an input file and store them into a vector of Movie objects
 vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMoviesPerCategory) {
     ifstream inputFile(filename);
 
-    // Reading the number of movies and categories from the input file
     inputFile >> N >> M;
 
-    // Resizing the maxMoviesPerCategory vector as per the number of categories
     maxMoviesPerCategory.resize(M);
 
-    // Reading the maximum number of movies per category
     for (int i = 0; i < M; i++) {
         inputFile >> maxMoviesPerCategory[i];
     }
 
-    // Initializing the movies vector with N number of movies
     vector<Movie> movies(N);
 
-    // Reading the movie information from the file
     for (int i = 0; i < N; i++) {
         inputFile >> movies[i].start >> movies[i].end >> movies[i].category;
         if (movies[i].end < movies[i].start) {
@@ -59,65 +49,71 @@ vector<Movie> readMovies(string filename, int &N, int &M, vector<int> &maxMovies
         movies[i].index = i;
     }
 
-    // Closing the input file
     inputFile.close();
     return movies;
 }
 
-// Implementation of exhaustive search using OpenMP to parallelize the task
 void exhaustiveSearch(vector<Movie> &movies, vector<int> &maxMoviesPerCategory, vector<Movie> &bestCombination) {
-    int maxMoviesWatched = 0;
-    vector<Movie> chosenMovies;
-    vector<int> chosenMoviesPerCategory(maxMoviesPerCategory.size(), 0);
-    vector<bool> movieSelected(movies.size(), false);
     int N = movies.size();
-    int M = maxMoviesPerCategory.size();
+    int n_threads = omp_get_max_threads();
+    vector<int> bests(n_threads, 0);
+    vector<vector<Movie>> bestCombinations(n_threads);
 
-    // OpenMP directive to parallelize the outer loop
-    #pragma omp parallel for
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            // Inside the loop, we verify each movie and, if it fits within the time and category constraints, increment a shared variable count.
-            // As count is a shared variable, we need to protect this critical region among threads.
-            
+    #pragma omp parallel
+    {
+        int best = 0;
+        vector<Movie> chosenMovies;
+        #pragma omp for
+        for (unsigned int i = 0; i < static_cast<unsigned int>(pow(2, N)); i++) { 
+            vector<int> slots(32, 0);
+            vector<int> chosenMoviesPerCategory(maxMoviesPerCategory.size(), 0);
+
             chosenMovies.clear();
-            chosenMoviesPerCategory.assign(M, 0);
-            movieSelected.assign(N, false);
             int moviesWatched = 0;
-            
-            for (int k = i; k < N; k++) {
-                const Movie &movie = movies[k];
-                if (!movieSelected[movie.index] && movie.end > movie.start && chosenMoviesPerCategory[movie.category - 1] < maxMoviesPerCategory[movie.category - 1]) {
+
+            for (int j = 0; j < N; j++) {
+                if (i & (1 << j)) {
+                    if (moviesWatched >= 24) {
+                        break;
+                    }
+
                     bool conflict = false;
                     for (const Movie &chosenMovie : chosenMovies) {
-                        if (timeOverlap(chosenMovie.start, chosenMovie.end, movie.start, movie.end)) {
+                        if (timeOverlap(chosenMovie.start, chosenMovie.end, movies[j].start, movies[j].end)) {
                             conflict = true;
                             break;
                         }
                     }
-                    if (!conflict) {
-                        chosenMoviesPerCategory[movie.category - 1]++;
-                        moviesWatched++;
-                        chosenMovies.push_back(movie);
-                        movieSelected[movie.index] = true;
+
+                    if (conflict || chosenMoviesPerCategory[movies[j].category - 1] >= maxMoviesPerCategory[movies[j].category - 1]) {
+                        continue;
                     }
+
+                    chosenMovies.push_back(movies[j]);
+                    chosenMoviesPerCategory[movies[j].category - 1]++;
+                    moviesWatched++;
                 }
             }
-            
-            // In the critical section, we check if the current count of movies watched is higher than the maximum found so far. If it is, we update the maximum count and the best combination of movies.
-            #pragma omp critical
-            {
-                if (moviesWatched > maxMoviesWatched) {
-                    maxMoviesWatched = moviesWatched;
-                    bestCombination = chosenMovies;
-                }
+
+            if (moviesWatched > 0 && moviesWatched <= 24 && moviesWatched > best) {
+                best = moviesWatched;
+                bestCombinations[omp_get_thread_num()] = chosenMovies;
+                bests[omp_get_thread_num()] = best;
             }
+        }
+    }
+
+    int bestMoviesWatched = 0;
+    for (int i = 0; i < n_threads; i++) {
+        if (bests[i] > bestMoviesWatched) {
+            bestMoviesWatched = bests[i];
+            bestCombination = bestCombinations[i];
         }
     }
 }
 
+
 int main(int argc, char* argv[]) {
-    // The main function checks the input arguments, reads the movies from the input file, sorts the movies, applies the exhaustive search algorithm, and finally prints the results along with the time taken to execute the algorithm.
 
     if (argc != 2) {
         cerr << "Usage: " << argv[0] << " <input_file>" << endl;
@@ -128,34 +124,27 @@ int main(int argc, char* argv[]) {
     int N, M;
     vector<int> maxMoviesPerCategory;
 
-    // Pass the input file name to the readMovies function
     vector<Movie> movies = readMovies(input_file, N, M, maxMoviesPerCategory);
 
-    // Sort the movies by end time, and start time in case of a tie
     sort(movies.begin(), movies.end(), compareMovies);
 
     vector<Movie> bestCombination;
-    // Start the timer
+
     auto startTime = chrono::steady_clock::now();
 
     exhaustiveSearch(movies, maxMoviesPerCategory, bestCombination);
 
-    // Stop the timer
     auto endTime = chrono::steady_clock::now();
 
-    // Calculate the time elapsed during the exhaustive search execution
-    double duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime).count() / 1e6;
+    double duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime).count();
 
-    // Print the number of movies watched
     cout << "Movies watched: " << bestCombination.size() << endl;
 
-    // Print the start and end times, and category of the selected movies
     for (const Movie &movie : bestCombination) {
         cout << "Movie start: " << movie.start << ", end: " << movie.end << ", category: " << movie.category << endl;
     }
 
-    // Print the time elapsed during the exhaustive search execution
-    cout << "Time elapsed during the exhaustive search algorithm: " << duration << " microseconds" << endl;
+    cout << "Time elapsed during the exhaustive search algorithm: " << duration << " seconds" << endl;
 
     return 0;
 }

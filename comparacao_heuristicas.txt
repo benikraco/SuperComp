@@ -1,22 +1,52 @@
-+------------+------------+-------------------+-------------------+---------------+
-| Input      | Heurística | Filmes assistidos | Tempo de execução | Tempo na tela |
-+------------+------------+-------------------+-------------------+---------------+
-| input0.txt | Gulosa     | 9                 | 10.0              | 23            |
-| input0.txt | Aleatória  | 8                 | 29.0              | 22            |
-| input0.txt | Exaustiva  | 9                 | 0.001492          | 23            |
-| input1.txt | Gulosa     | 13                | 18.0              | 23            |
-| input1.txt | Aleatória  | 11                | 41.0              | 21            |
-| input1.txt | Exaustiva  | 13                | 0.004402          | 23            |
-| input2.txt | Gulosa     | 13                | 18.0              | 24            |
-| input2.txt | Aleatória  | 9                 | 38.0              | 23            |
-| input2.txt | Exaustiva  | 13                | 0.009201          | 24            |
-| input3.txt | Gulosa     | 11                | 16.0              | 22            |
-| input3.txt | Aleatória  | 9                 | 38.0              | 22            |
-| input3.txt | Exaustiva  | 11                | 0.017566          | 22            |
-| input4.txt | Gulosa     | 13                | 18.0              | 24            |
-| input4.txt | Aleatória  | 12                | 42.0              | 24            |
-| input4.txt | Exaustiva  | 13                | 0.039185          | 24            |
-| input5.txt | Gulosa     | 7                 | 125.0             | 9             |
-| input5.txt | Aleatória  | 7                 | 190.0             | 13            |
-| input5.txt | Exaustiva  | 7                 | 0.090646          | 9             |
-+------------+------------+-------------------+-------------------+---------------+
++-------------+--------------------+------------------------+--------------------+-------------------+------------------------+-------------------+
+| Input       | Filmes Disponíveis | Categorias Disponíveis | Heurística         | Filmes assistidos | Tempo de execução (us) | Tempo na tela (h) |
++-------------+--------------------+------------------------+--------------------+-------------------+------------------------+-------------------+
+| input0.txt  | 10                 | 2                      | Gulosa             | 3                 | 2.0                    | 10                |
+| input0.txt  | 10                 | 2                      | Aleatória          | 3                 | 9.0                    | 9                 |
+| input0.txt  | 10                 | 2                      | Exaustiva          | 3                 | 927.0                  | 10                |
+| input0.txt  | 10                 | 2                      | Exaustiva (OpenMP) | 3                 | 366.0                  | 10                |
+| input1.txt  | 10                 | 4                      | Gulosa             | 4                 | 2.0                    | 14                |
+| input1.txt  | 10                 | 4                      | Aleatória          | 4                 | 9.0                    | 14                |
+| input1.txt  | 10                 | 4                      | Exaustiva          | 4                 | 903.0                  | 11                |
+| input1.txt  | 10                 | 4                      | Exaustiva (OpenMP) | 4                 | 372.0                  | 11                |
+| input2.txt  | 10                 | 6                      | Gulosa             | 4                 | 2.0                    | 12                |
+| input2.txt  | 10                 | 6                      | Aleatória          | 3                 | 10.0                   | 8                 |
+| input2.txt  | 10                 | 6                      | Exaustiva          | 4                 | 902.0                  | 12                |
+| input2.txt  | 10                 | 6                      | Exaustiva (OpenMP) | 4                 | 360.0                  | 12                |
+| input3.txt  | 12                 | 4                      | Gulosa             | 4                 | 2.0                    | 13                |
+| input3.txt  | 12                 | 4                      | Aleatória          | 4                 | 10.0                   | 14                |
+| input3.txt  | 12                 | 4                      | Exaustiva          | 4                 | 3830.0                 | 13                |
+| input3.txt  | 12                 | 4                      | Exaustiva (OpenMP) | 4                 | 1100.0                 | 13                |
+| input4.txt  | 12                 | 6                      | Gulosa             | 7                 | 3.0                    | 18                |
+| input4.txt  | 12                 | 6                      | Aleatória          | 6                 | 11.0                   | 15                |
+| input4.txt  | 12                 | 6                      | Exaustiva          | 7                 | 4445.0                 | 18                |
+| input4.txt  | 12                 | 6                      | Exaustiva (OpenMP) | 7                 | 1294.0                 | 18                |
+| input5.txt  | 12                 | 8                      | Gulosa             | 5                 | 3.0                    | 13                |
+| input5.txt  | 12                 | 8                      | Aleatória          | 5                 | 11.0                   | 14                |
+| input5.txt  | 12                 | 8                      | Exaustiva          | 5                 | 4088.0                 | 13                |
+| input5.txt  | 12                 | 8                      | Exaustiva (OpenMP) | 5                 | 5040.0                 | 13                |
+| input6.txt  | 14                 | 4                      | Gulosa             | 6                 | 4.0                    | 16                |
+| input6.txt  | 14                 | 4                      | Aleatória          | 6                 | 10.0                   | 16                |
+| input6.txt  | 14                 | 4                      | Exaustiva          | 6                 | 18590.0                | 16                |
+| input6.txt  | 14                 | 4                      | Exaustiva (OpenMP) | 6                 | 4912.0                 | 16                |
+| input7.txt  | 14                 | 6                      | Gulosa             | 6                 | 3.0                    | 17                |
+| input7.txt  | 14                 | 6                      | Aleatória          | 6                 | 13.0                   | 15                |
+| input7.txt  | 14                 | 6                      | Exaustiva          | 7                 | 19673.0                | 17                |
+| input7.txt  | 14                 | 6                      | Exaustiva (OpenMP) | 7                 | 5404.0                 | 17                |
+| input8.txt  | 14                 | 8                      | Gulosa             | 6                 | 5.0                    | 16                |
+| input8.txt  | 14                 | 8                      | Aleatória          | 6                 | 11.0                   | 16                |
+| input8.txt  | 14                 | 8                      | Exaustiva          | 6                 | 18841.0                | 17                |
+| input8.txt  | 14                 | 8                      | Exaustiva (OpenMP) | 6                 | 5110.0                 | 17                |
+| input9.txt  | 16                 | 4                      | Gulosa             | 5                 | 3.0                    | 13                |
+| input9.txt  | 16                 | 4                      | Aleatória          | 5                 | 12.0                   | 11                |
+| input9.txt  | 16                 | 4                      | Exaustiva          | 5                 | 75108.0                | 13                |
+| input9.txt  | 16                 | 4                      | Exaustiva (OpenMP) | 5                 | 20576.0                | 13                |
+| input10.txt | 16                 | 6                      | Gulosa             | 6                 | 4.0                    | 18                |
+| input10.txt | 16                 | 6                      | Aleatória          | 5                 | 12.0                   | 14                |
+| input10.txt | 16                 | 6                      | Exaustiva          | 6                 | 75601.0                | 18                |
+| input10.txt | 16                 | 6                      | Exaustiva (OpenMP) | 6                 | 19131.0                | 18                |
+| input11.txt | 16                 | 8                      | Gulosa             | 7                 | 4.0                    | 22                |
+| input11.txt | 16                 | 8                      | Aleatória          | 7                 | 12.0                   | 22                |
+| input11.txt | 16                 | 8                      | Exaustiva          | 7                 | 83607.0                | 22                |
+| input11.txt | 16                 | 8                      | Exaustiva (OpenMP) | 7                 | 21471.0                | 22                |
++-------------+--------------------+------------------------+--------------------+-------------------+------------------------+-------------------+

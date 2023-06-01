@@ -1,0 +1,7 @@
+Movies watched: 5
+Movie start: 0, end: 4, category: 4
+Movie start: 7, end: 8, category: 3
+Movie start: 10, end: 14, category: 2
+Movie start: 16, end: 18, category: 4
+Movie start: 21, end: 23, category: 3
+Time elapsed during the greedy algorithm: 3 microseconds
