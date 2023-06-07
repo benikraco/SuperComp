@@ -4,6 +4,5 @@ Movie start: 4, end: 5, category: 8
 Movie start: 8, end: 11, category: 5
 Movie start: 12, end: 15, category: 5
 Movie start: 15, end: 18, category: 5
-Movie start: 18, end: 22, category: 7
 Movie start: 22, end: 26, category: 1
-Time elapsed during the exhaustive search algorithm: 80910 microseconds
+Time elapsed during the exhaustive search algorithm: 2729 microseconds

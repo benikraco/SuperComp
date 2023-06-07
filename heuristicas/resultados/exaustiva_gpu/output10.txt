@@ -5,4 +5,4 @@ Movie start: 9, end: 13, category: 5
 Movie start: 13, end: 15, category: 3
 Movie start: 15, end: 17, category: 6
 Movie start: 18, end: 22, category: 4
-Time elapsed during the aleatory algorithm: 11 microseconds
+Time elapsed during the exhaustive search algorithm: 2701 microseconds

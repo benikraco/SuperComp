@@ -6,4 +6,4 @@ Movie start: 7, end: 10, category: 1
 Movie start: 10, end: 10, category: 3
 Movie start: 10, end: 13, category: 3
 Movie start: 13, end: 18, category: 3
-Time elapsed during the exhaustive search algorithm: 5206 seconds
+Time elapsed during the exhaustive search algorithm: 14292 microseconds
